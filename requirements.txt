@@ -71,5 +71,5 @@ w3lib==2.1.2
 websockets==10.4
 wsproto==1.2.0
 yarl==1.9.2
-zipp==3.17.0
+zipp==3.15.0
 langsmith
