@@ -31,7 +31,7 @@ multidict==6.0.4
 mypy-extensions==1.0.0
 nltk==3.8.1
 numexpr==2.8.6
-numpy==1.26.0
+numpy== 1.21.6
 outcome==1.2.0
 packaging==23.1
 pandas==2.1.0
