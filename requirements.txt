@@ -44,7 +44,7 @@ pyppeteer==1.0.2
 pyquery==2.0.0
 PySocks==1.7.1
 python-dateutil==2.8.2
-python-iso639==2023.6.15
+python-iso639==2022.9.17
 python-magic==0.4.27
 pytz==2023.3.post1
 PyYAML==6.0.1
