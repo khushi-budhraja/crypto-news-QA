@@ -1,0 +1,6 @@
+env
+.env
+urls.py
+news.json
+cleaned_file.csv
+latestnews.csv

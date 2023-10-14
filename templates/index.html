@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto News</title>
+    <style>
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        body {
+        background-image: url('C:\Users\Khushi Budhraja\Bit By Bit\news_scrap\static\cryptoimage.png'); 
+        background-size: cover;
+        }
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <div class="container">
+        <form action = "#" method='post'>
+            <h2>Ask question on latest crypto news:</h2><br>
+            <input type="text" style="width: 300px;" name="query"><br>
+            <button type = "submit">Submit</button>
+        </form>
+        <h2 font-weight: normal;> The answer to your question is : {{ result }} </h2>
+    </div>
+    
+</body>
+</html>
