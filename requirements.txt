@@ -26,7 +26,7 @@ importlib-metadata
 joblib==1.3.2
 langchain
 lxml==4.9.3
-marshmallow==3.20.1
+marshmallow==3.19.0
 multidict==6.0.4
 mypy-extensions==1.0.0
 nltk==3.8.1
