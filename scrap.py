@@ -24,7 +24,7 @@ def check_range(day_time):
     date_object = datetime.strptime(date_string, date_format)
     news_timestamp = int(date_object.timestamp())
     current_timestamp = int(time.time())
-    if (current_timestamp - news_timestamp) < 24*60*60*15:
+    if (current_timestamp - news_timestamp) < 24*60*60*7:
         return True
     else:
         return False

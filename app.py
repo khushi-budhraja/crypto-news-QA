@@ -102,7 +102,7 @@ def create_app():
 app, path, embeddings,  data_store = create_app()
 
 
-@app.route("/search-news", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def search_pdf():
     if request.method == "POST":
         search_query = request.form["query"]
