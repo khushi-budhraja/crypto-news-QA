@@ -65,38 +65,36 @@ def exctract_data(url):
 
     details.append([title.text, "".join(data), ",".join(tags), day_time_list[0], day_time_list[1], category[1]])
 
-page = 1
-flag = True
-urls = []
-while flag:
-    res = requests.get(f"https://cryptopotato.com/category/crypto-news/page/{page}/")
-    soup = BeautifulSoup(res.content,"html.parser")
-    lst = soup.find_all("div",class_="media-body")
-    for i in lst:
-        day_time = exctract_time(i)
-        range = check_range(day_time)
-        if range:
-            print(f"Page : {page}")
-            url = extract_url(i)
-            urls.append(url)
-            exctract_data(url)
-        else:
-            print(f"Last page = {page}")
-            flag = False
+def main(file_name):
+    page = 1
+    flag = True
+    urls = []
+    while flag:
+        res = requests.get(f"https://cryptopotato.com/category/crypto-news/page/{page}/")
+        soup = BeautifulSoup(res.content,"html.parser")
+        lst = soup.find_all("div",class_="media-body")
+        for i in lst:
+            day_time = exctract_time(i)
+            range = check_range(day_time)
+            if range:
+                print(f"Page : {page}")
+                url = extract_url(i)
+                urls.append(url)
+                exctract_data(url)
+            else:
+                print(f"Last page = {page}")
+                flag = False
+                break
+        if page == 5:
             break
-    page+=1
+        page+=1
 
-df = pd.DataFrame(details, columns=["Title","Content","Tags","Day","Time", "Category"])
-df.to_csv("latestnews.csv", index = False)
+    # Create a DataFrame and clean the data
+    df = pd.DataFrame(details, columns=["Title","Content","Tags","Day","Time", "Category"])
+    df = df.replace(r'[^\w\s]+', '', regex=True)
 
-# Load the CSV file
-df = pd.read_csv('latestnews.csv')
-# Remove non-alphanumeric characters
-df = df.replace(r'[^\w\s]+', '', regex=True)
-# Save the cleaned data
-df.to_csv('cleaned_file.csv', index=False)
+    # Save the cleaned data
+    df.to_csv(file_name, index=False)
 
-#pip install bs4
-#pip install pandas
-#pip install requests_html
-#pip install requests
+if __name__ == "__main__":
+    main("clean.csv")
